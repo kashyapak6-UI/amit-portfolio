@@ -7,6 +7,7 @@ import NavBar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Work from "./components/Work";
+import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
@@ -37,6 +38,7 @@ function App() {
       <Hero />
       <Marquee />
       <Work />
+      <Gallery />
       <About />
       <Experience />
       <Skills />

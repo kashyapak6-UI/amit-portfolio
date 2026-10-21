@@ -50,19 +50,6 @@ const Contact = () => {
               <HiOutlineMapPin className="text-lime-300" /> {contact.location}
             </p>
           </div>
-          <div className="flex flex-wrap gap-3">
-            {contact.links.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-1 rounded-full border border-white/15 px-5 py-2.5 font-grotesk text-xs uppercase tracking-widest transition hover:border-lime-300 hover:bg-lime-300 hover:text-ink-900"
-              >
-                {s.label} <HiArrowUpRight className="transition group-hover:rotate-45" />
-              </a>
-            ))}
-          </div>
         </div>
 
         <form onSubmit={onSubmit} className="grid gap-4 md:col-span-3 md:grid-cols-2">

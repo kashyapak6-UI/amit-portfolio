@@ -6,7 +6,7 @@ import { HiArrowDown } from "react-icons/hi";
 
 import Button from "./Button";
 import { scrollToHash } from "./Navbar";
-import { profile, heroCards } from "../constants/content";
+import { profile } from "../constants/content";
 
 gsap.registerPlugin(ScrollTrigger);
 const HeroScene = lazy(() => import("./HeroScene"));
@@ -38,9 +38,6 @@ const Hero = () => {
         ease: "power4.out",
         delay: 0.2,
       });
-      // floating 3D stack of real work samples
-      gsap.from(".hero-card", { rotateY: -70, z: -300, opacity: 0, stagger: 0.15, duration: 1.4, delay: 0.6, ease: "power3.out" });
-      gsap.to(".hero-cards", { rotateY: -18, rotateX: 8, yPercent: -25, ease: "none", scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true } });
       gsap.from(".hero-fade", { y: 30, opacity: 0, stagger: 0.1, duration: 1, delay: 0.8, ease: "power3.out" });
 
       // Scroll: frame clips into a tilted polygon (clip-path trick from the reference Hero)
@@ -69,20 +66,6 @@ const Hero = () => {
             <HeroScene />
           </Suspense>
         </SceneBoundary>
-
-        <div className="pointer-events-none absolute right-[6%] top-1/2 z-[5] hidden -translate-y-1/2 lg:block" style={{ perspective: "1200px" }}>
-          <div className="hero-cards relative h-[26rem] w-[19rem]" style={{ transformStyle: "preserve-3d", transform: "rotateY(-12deg) rotateX(4deg)" }}>
-            {heroCards.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt="Design sample"
-                className="hero-card absolute inset-0 size-full rounded-2xl border border-white/15 object-cover shadow-2xl"
-                style={{ transform: `translate3d(${i * -46}px, ${i * 34}px, ${i * -90}px) rotateZ(${(i - 1) * 5}deg)`, zIndex: 3 - i }}
-              />
-            ))}
-          </div>
-        </div>
 
         <div className="hero-copy pointer-events-none absolute inset-0 z-10 flex flex-col justify-between section-pad pb-10 pt-28">
           <div className="hero-fade flex items-center gap-3">

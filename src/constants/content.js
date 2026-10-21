@@ -75,9 +75,6 @@ export const projects = [
   },
 ];
 
-// Floating 3D cards in the hero (local files)
-export const heroCards = ["/canva/gallery-project-03.webp", "/canva/gallery-social-05.webp", "/canva/gallery-poster-04.webp"];
-
 export const about = {
   heading: "Hi, I'm Amit Kashyap",
   image: "/canva/focus-03.webp",

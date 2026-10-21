@@ -10,7 +10,7 @@ export const profile = {
   location: "Ludhiana, India",
   greeting: "Hello, I am Amit!",
   tagline: "“Short and sweet” is my mantra. I emphasize simplicity and elegance in my digital designs.",
-  heroLines: ["Design that"],
+  heroLines: ["Design that", "Connects"],
   available: "Based in Ludhiana, India · Remote & on-site",
 };
 

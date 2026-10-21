@@ -33,7 +33,9 @@ body {
     will-change: opacity, transform;
   }
 
-  .hero-heading { @apply font-display font-extrabold uppercase leading-[0.85] text-[12.5vw] md:text-[10vw]; }
+  /* sized so the longest line ("CONNECTS") always fits the padded width */
+  .hero-heading { @apply font-display font-extrabold uppercase leading-[0.85]; font-size: min(8.6vw, 9rem); }
+  @media (min-width: 768px) { .hero-heading { font-size: min(calc((100vw - 8rem) / 10.2), 9rem); } }
   .outline-text { -webkit-text-stroke: 1.5px #f3f1ea; color: transparent; }
 
   .work-card { transform-style: preserve-3d; will-change: transform, opacity, clip-path; }

@@ -65,14 +65,13 @@ const Skills = () => {
           <div key={s.name} className="skill-card" style={{ transformStyle: "preserve-3d" }}>
             <Tilt className="relative h-full overflow-hidden rounded-3xl border border-white/10 bg-ink-700/80 p-7" strength={12}>
               <div className="absolute -right-10 -top-10 size-40 rounded-full opacity-20 blur-2xl" style={{ background: s.color }} />
-              <span
-                className="flex-center size-14 rounded-2xl border-2 font-display text-xl font-extrabold"
-                style={{ borderColor: s.color, color: s.color, background: `${s.color}1a`, transform: "translateZ(30px)" }}
-              >
-                {s.short}
-              </span>
-              <h4 className="mt-8 font-display text-xl font-bold uppercase">{s.name}</h4>
-              {s.note && <p className="mt-2 font-body text-sm text-white/50">{s.note}</p>}
+              <div className="flex min-h-10 items-center gap-3" style={{ transform: "translateZ(30px)" }}>
+                {s.icon && (
+                  <img src={s.icon} alt={`${s.name} logo`} width={36} height={36} loading="lazy" className="tool-icon size-8 shrink-0 object-contain sm:size-9" />
+                )}
+                <h4 className="min-w-0 font-display text-lg font-bold uppercase leading-tight xl:text-xl">{s.name}</h4>
+              </div>
+              {s.note && <p className="mt-3 font-body text-sm text-white/50">{s.note}</p>}
             </Tilt>
           </div>
         ))}

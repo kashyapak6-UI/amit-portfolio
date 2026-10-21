@@ -70,14 +70,14 @@ const About = () => {
             <p key={p} className="about-para font-body text-lg leading-relaxed text-white/70 md:text-xl">{p}</p>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-4 self-end">
+        <div className="about-stats grid gap-4 self-end">
           {about.stats.map((s) => (
-            <div key={s.label} className="about-stat rounded-2xl border border-white/10 bg-white/5 p-5">
-              <p className="font-display text-4xl font-extrabold text-lime-300 md:text-5xl">
+            <div key={s.label} className="about-stat min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5">
+              <p className="stat-value font-display font-extrabold text-lime-300">
                 <span className="stat-num">{s.value}</span>
                 {s.suffix}
               </p>
-              <p className="mt-2 font-grotesk text-xs uppercase tracking-widest text-white/50">{s.label}</p>
+              <p className="stat-label mt-2 font-grotesk text-xs uppercase text-white/50">{s.label}</p>
             </div>
           ))}
         </div>

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { background: #07070a; }
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #07070a;
+  color: #f3f1ea;
+  font-family: "Inter Variable", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: #d4ff3f; color: #07070a; }
+
+@layer utilities {
+  .flex-center { @apply flex items-center justify-center; }
+  .absolute-center { @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2; }
+  .section-pad { @apply px-5 sm:px-10 md:px-16; }
+  .eyebrow { @apply font-grotesk text-xs uppercase tracking-[0.3em] text-lime-300; }
+
+  .nav-hover-btn {
+    @apply relative ms-8 cursor-pointer font-grotesk text-xs uppercase tracking-widest text-cream-50 after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-lime-300 after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  .floating-nav { @apply rounded-2xl border border-white/10 bg-ink-900/70 backdrop-blur-md; }
+
+  /* 3D word reveal (pattern from the reference repo's AnimatedTitle) */
+  .animated-title { @apply flex flex-col gap-1 font-display font-extrabold uppercase leading-[.9]; perspective: 1000px; }
+  .animated-word {
+    @apply inline-block opacity-0;
+    transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
+    transform-origin: 50% 50% -150px !important;
+    will-change: opacity, transform;
+  }
+
+  .hero-heading { @apply font-display font-extrabold uppercase leading-[0.85] text-[12.5vw] md:text-[10vw]; }
+  .outline-text { -webkit-text-stroke: 1.5px #f3f1ea; color: transparent; }
+
+  .work-card { transform-style: preserve-3d; will-change: transform, opacity, clip-path; }
+  .work-stage { perspective: 1400px; }
+
+  .skill-stage { perspective: 1200px; }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .marquee-track { animation: marquee 22s linear infinite; }
+  .input-field {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-body text-sm text-cream-50 outline-none transition placeholder:text-white/30 focus:border-lime-300/70 focus:bg-white/10;
+  }
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}

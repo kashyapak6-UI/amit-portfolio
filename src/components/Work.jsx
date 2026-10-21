@@ -6,7 +6,7 @@ import { HiArrowUpRight } from "react-icons/hi2";
 
 import AnimatedTitle from "./AnimatedTitle";
 import Tilt from "./Tilt";
-import { projects } from "../constants/content";
+import { projects, profile } from "../constants/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,12 +66,21 @@ const Work = () => {
         </div>
         <p className="max-w-sm font-body text-white/60">
           <span className="work-count font-display text-6xl font-extrabold text-lime-300">{projects.length}</span>
-          <span className="ml-2 font-display text-6xl font-extrabold text-lime-300">+</span>
           <br />
-          Featured pieces across branding, posters, packaging, UI, logos and illustration.
+          Featured projects across app UI, website UI, social media, AI content and branding.
+          <br />
+          <a
+            href={profile.portfolioUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-lime-300/60 px-5 py-2.5 font-grotesk text-xs font-semibold uppercase tracking-widest text-lime-300 transition hover:bg-lime-300 hover:text-ink-900"
+          >
+            View full portfolio <HiArrowUpRight className="transition group-hover:rotate-45" />
+          </a>
         </p>
       </div>
 
+      <p className="mb-10 font-grotesk text-xs uppercase tracking-widest text-white/35">Images are placeholders — full gallery on the Canva portfolio.</p>
       <div className="work-stage grid gap-x-10 gap-y-20 md:grid-cols-2">
         {projects.map((p, i) => (
           <article key={p.title} className={`work-card ${i % 2 === 1 ? "md:mt-40" : ""}`}>

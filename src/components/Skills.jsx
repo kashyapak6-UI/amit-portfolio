@@ -5,10 +5,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import AnimatedTitle from "./AnimatedTitle";
 import Tilt from "./Tilt";
-import { skills } from "../constants/content";
+import { tools, coreSkills } from "../constants/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Tools & core skills from the CV. The CV gives no proficiency levels, so none are shown.
 const Skills = () => {
   const root = useRef(null);
 
@@ -29,13 +30,20 @@ const Skills = () => {
           scrollTrigger: { trigger: ".skill-grid", start: "top 80%", toggleActions: "play none none reverse" },
         }
       );
-      // animated level bars + numbers
-      gsap.utils.toArray(".skill-card").forEach((card) => {
-        const level = Number(card.dataset.level);
-        const st = { trigger: card, start: "top 85%", toggleActions: "play none none reverse" };
-        gsap.fromTo(card.querySelector(".skill-bar"), { scaleX: 0 }, { scaleX: level / 100, duration: 1.6, ease: "power3.out", delay: 0.4, scrollTrigger: st });
-        gsap.fromTo(card.querySelector(".skill-num"), { textContent: 0 }, { textContent: level, duration: 1.6, delay: 0.4, snap: { textContent: 1 }, scrollTrigger: st });
-      });
+      // core skill rows swing in from a tilted plane
+      gsap.fromTo(
+        ".core-skill",
+        { rotateX: -70, y: 60, opacity: 0, transformOrigin: "50% 0%" },
+        {
+          rotateX: 0,
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: ".core-list", start: "top 85%", toggleActions: "play none none reverse" },
+        }
+      );
       // rotating 3D ring in the background
       gsap.to(".skill-ring", { rotateX: 70, rotateZ: 360, ease: "none", scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true } });
     },
@@ -49,33 +57,36 @@ const Skills = () => {
       </div>
 
       <p className="eyebrow mb-6">Toolbox</p>
-      <AnimatedTitle title="Skills &amp;<br />superpowers" containerClass="text-5xl md:text-8xl text-cream-50 mb-20" />
+      <AnimatedTitle title="Skills &amp;<br />tools" containerClass="text-5xl md:text-8xl text-cream-50 mb-20" />
 
-      <div className="skill-grid skill-stage grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((s) => (
-          <div key={s.name} className="skill-card" data-level={s.level} style={{ transformStyle: "preserve-3d" }}>
+      <h3 className="mb-6 font-grotesk text-xs uppercase tracking-[0.3em] text-white/50">Tools</h3>
+      <div className="skill-grid skill-stage grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        {tools.map((s) => (
+          <div key={s.name} className="skill-card" style={{ transformStyle: "preserve-3d" }}>
             <Tilt className="relative h-full overflow-hidden rounded-3xl border border-white/10 bg-ink-700/80 p-7" strength={12}>
               <div className="absolute -right-10 -top-10 size-40 rounded-full opacity-20 blur-2xl" style={{ background: s.color }} />
-              <div className="flex items-center justify-between" style={{ transform: "translateZ(30px)" }}>
-                <span
-                  className="flex-center size-14 rounded-2xl border-2 font-display text-xl font-extrabold"
-                  style={{ borderColor: s.color, color: s.color, background: `${s.color}1a` }}
-                >
-                  {s.short}
-                </span>
-                <span className="font-display text-4xl font-extrabold">
-                  <span className="skill-num">{s.level}</span>
-                  <span className="text-xl text-white/40">%</span>
-                </span>
-              </div>
-              <h3 className="mt-8 font-display text-2xl font-bold uppercase">{s.name}</h3>
-              <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-white/10">
-                <div className="skill-bar h-full w-full origin-left rounded-full" style={{ background: s.color, transform: `scaleX(${s.level / 100})` }} />
-              </div>
+              <span
+                className="flex-center size-14 rounded-2xl border-2 font-display text-xl font-extrabold"
+                style={{ borderColor: s.color, color: s.color, background: `${s.color}1a`, transform: "translateZ(30px)" }}
+              >
+                {s.short}
+              </span>
+              <h4 className="mt-8 font-display text-xl font-bold uppercase">{s.name}</h4>
+              {s.note && <p className="mt-2 font-body text-sm text-white/50">{s.note}</p>}
             </Tilt>
           </div>
         ))}
       </div>
+
+      <h3 className="mb-6 mt-20 font-grotesk text-xs uppercase tracking-[0.3em] text-white/50">Core skills</h3>
+      <ul className="core-list grid gap-4 md:grid-cols-2" style={{ perspective: "1000px" }}>
+        {coreSkills.map((c, i) => (
+          <li key={c} className="core-skill flex items-center gap-5 rounded-2xl border border-white/10 bg-white/5 px-6 py-5">
+            <span className="font-display text-2xl font-extrabold text-lime-300">0{i + 1}</span>
+            <span className="font-display text-lg font-bold uppercase md:text-xl">{c}</span>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 };

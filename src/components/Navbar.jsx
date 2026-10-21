@@ -53,7 +53,7 @@ const NavBar = () => {
         <nav className="flex items-center justify-between px-4 py-3">
           <a href="#hero" onClick={(e) => go(e, "#hero")} className="flex items-center gap-3">
             <span className="flex-center size-10 rounded-xl bg-lime-300 font-display text-lg font-extrabold text-ink-900">
-              {profile.name.charAt(0)}
+              AK
             </span>
             <span className="hidden font-display text-sm font-bold uppercase tracking-wider sm:block">
               {profile.name} <span className="text-white/40">/ {profile.role}</span>

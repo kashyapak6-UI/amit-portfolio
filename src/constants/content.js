@@ -1,111 +1,195 @@
 // ---------------------------------------------------------------
-//  ALL PLACEHOLDER CONTENT LIVES HERE. Edit this file to personalise
-//  the portfolio (name, text, projects, skills, contact links).
+//  ALL SITE CONTENT LIVES HERE. Text comes from Amit Kashyap's CV.
+//  Project images are still placeholders (picsum.photos) — swap
+//  `image` for your own files in /public/projects later.
 // ---------------------------------------------------------------
 
 export const profile = {
-  name: "Amit",
-  role: "Graphic Designer",
-  location: "India",
-  tagline: "I design brands, posters and packaging that people remember.",
+  name: "Amit Kashyap",
+  shortName: "Amit",
+  role: "Graphic & Web UI Designer",
+  location: "Ludhiana, India",
+  greeting: "Hello, I am Amit!",
+  tagline: "“Short and sweet” is my mantra. I emphasize simplicity and elegance in my digital designs.",
   heroLines: ["Design that", "moves people"],
-  available: "Available for freelance — 2026",
-  resumeUrl: "#",
+  available: "Based in Ludhiana, India · Remote & on-site",
+  portfolioUrl:
+    "https://amitkashyap.my.canva.site/brand-designer-portfolio-website-in-beige-black-bronze-warm-classic-style",
 };
 
 export const navItems = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
 
-// Images: free placeholders from picsum.photos — replace `image` with
-// your own files (put them in /public/projects and use "/projects/x.jpg").
+// Project names/descriptions from the CV. Images are placeholders.
 export const projects = [
   {
-    title: "Lotus Puff Branding",
-    category: "Branding",
-    year: "2026",
-    description: "Complete visual identity for a snack brand — logo, colours, type system.",
-    image: "https://picsum.photos/seed/amit-branding/1200/900",
-    accent: "#d4ff3f",
-  },
-  {
-    title: "Neon Nights Poster",
-    category: "Poster",
-    year: "2026",
-    description: "Gig poster series with bold type and glowing gradients.",
-    image: "https://picsum.photos/seed/amit-poster/1200/900",
-    accent: "#ff5c8a",
-  },
-  {
-    title: "Flavour Pack Series",
-    category: "Packaging",
-    year: "2025",
-    description: "Per-flavour packaging system with a shared grid and unique colourways.",
-    image: "https://picsum.photos/seed/amit-packaging/1200/900",
-    accent: "#ffb547",
-  },
-  {
-    title: "Pulse Fitness App",
-    category: "UI Design",
-    year: "2025",
-    description: "Mobile UI kit and dashboard screens designed in Figma.",
-    image: "https://picsum.photos/seed/amit-ui/1200/900",
+    title: "MyChamp11 App UI",
+    category: "Mobile App UI",
+    year: "2024–25",
+    description: "Mobile app UI screens for the MyChamp11 fantasy cricket gaming app (GrizonTech).",
+    image: "https://picsum.photos/seed/amit-mychamp11/1200/900",
     accent: "#5ce1ff",
   },
   {
-    title: "Monogram Logo Set",
-    category: "Logo",
-    year: "2025",
-    description: "Twelve geometric monograms for small studios and creators.",
-    image: "https://picsum.photos/seed/amit-logo/1200/900",
+    title: "Gaming Brand Social Creatives",
+    category: "Social Media",
+    year: "2024–25",
+    description: "Social media creatives and graphic card visuals for the gaming brand (GrizonTech).",
+    image: "https://picsum.photos/seed/amit-gaming/1200/900",
+    accent: "#d4ff3f",
+  },
+  {
+    title: "Website Landing Pages",
+    category: "Website UI",
+    year: "2024–25",
+    description: "Website UI layouts for landing and internal pages, plus dashboard layouts for client platforms (GrizonTech).",
+    image: "https://picsum.photos/seed/amit-webui/1200/900",
     accent: "#a98bff",
   },
   {
-    title: "City Folk Illustrations",
-    category: "Illustration",
-    year: "2024",
-    description: "Editorial illustration series celebrating street life.",
-    image: "https://picsum.photos/seed/amit-illustration/1200/900",
+    title: "Starzlink AI Reels",
+    category: "AI Content",
+    year: "2023–24",
+    description: "AI-based reels, social creatives, branding visuals and campaign assets for Starzlink Corporation.",
+    image: "https://picsum.photos/seed/amit-starzlink/1200/900",
+    accent: "#ff5c8a",
+  },
+  {
+    title: "Digital Handlers Social Campaigns",
+    category: "Social Media",
+    year: "2023",
+    description: "High-volume social creatives (12–13 per day) for food, education and immigration clients.",
+    image: "https://picsum.photos/seed/amit-digitalhandlers/1200/900",
+    accent: "#ffb547",
+  },
+  {
+    title: "TTC Robotronics Steel Branding",
+    category: "Branding",
+    year: "2022",
+    description: "Social creatives and branding visuals for steel industry projects, delivered under tight deadlines.",
+    image: "https://picsum.photos/seed/amit-ttc/1200/900",
     accent: "#7cffb2",
   },
 ];
 
 export const about = {
-  heading: "Hi, I'm Amit",
+  heading: "Hi, I'm Amit Kashyap",
   image: "https://picsum.photos/seed/amit-studio/1600/1000",
   paragraphs: [
-    "I'm a graphic designer who loves turning rough ideas into clean, bold visuals. From brand identities to packaging and posters, I care about every pixel and every fold.",
-    "My process is simple: listen, sketch, iterate, and ship work that looks great and works hard for the business behind it.",
+    "Creative Graphic and Web UI Designer with over 4 years of experience specializing in social media creatives, branding, website UI layouts, mobile app screens (basic level), and AI-generated visual content.",
+    "Experienced in both full-time and freelance projects with a strong background in remote work environments. Skilled in delivering high-volume digital designs across multiple industries including gaming, technology, real estate, and digital marketing using Photoshop, Illustrator, Figma, Canva, and modern AI creative tools.",
+    "I'm passionate about brand design, illustration, and print design, aiming to establish a presence in digital media and technology. I'm eager to collaborate with individuals and organizations to showcase my distinctive style. If you're interested in creating impactful visual art together, let's connect!",
   ],
+  // All numbers come from the CV.
   stats: [
-    { value: 5, suffix: "+", label: "Years designing" },
-    { value: 80, suffix: "+", label: "Projects shipped" },
-    { value: 30, suffix: "+", label: "Happy clients" },
+    { value: 4, suffix: "+", label: "Years experience" },
+    { value: 1000, suffix: "+", label: "Social creatives" },
+    { value: 6, suffix: "", label: "Companies" },
   ],
 };
 
-export const skills = [
-  { name: "Photoshop", level: 92, short: "Ps", color: "#31a8ff" },
-  { name: "Illustrator", level: 90, short: "Ai", color: "#ff9a00" },
-  { name: "Figma", level: 85, short: "Fg", color: "#a259ff" },
-  { name: "After Effects", level: 75, short: "Ae", color: "#9999ff" },
-  { name: "Blender", level: 65, short: "Bl", color: "#f5792a" },
-  { name: "Branding", level: 95, short: "Br", color: "#d4ff3f" },
+// The CV lists no proficiency levels, so none are shown.
+export const tools = [
+  { name: "Adobe Photoshop", short: "Ps", color: "#31a8ff" },
+  { name: "Adobe Illustrator", short: "Ai", color: "#ff9a00" },
+  { name: "Figma", short: "Fg", color: "#a259ff" },
+  { name: "Canva", short: "Cv", color: "#00c4cc" },
+  { name: "AI Creative Tools", short: "AI", color: "#d4ff3f", note: "Image, video & voice generation" },
 ];
 
-export const services = ["Brand Identity", "Packaging", "Posters", "Social Media", "UI Design", "Motion"];
+export const coreSkills = [
+  "Social Media Creatives & Branding",
+  "Website UI Design (landing & internal pages)",
+  "Mobile App UI Screens (basic level)",
+  "AI Generated Images, Videos & Reels",
+  "Digital Visual Content Creation",
+];
+
+// Design focuses from the Canva portfolio + CV core skills
+export const services = ["Social Media", "Branding", "UI Design", "App UI Screens", "AI Images & Reels", "Video", "Logo"];
+
+export const experience = [
+  {
+    role: "Graphic & Web UI Designer",
+    company: "GrizonTech",
+    location: "Ludhiana (Remote)",
+    period: "Aug 2024 – Dec 2025",
+    points: [
+      "Designed website UI layouts for landing and internal pages.",
+      "Created mobile app UI screens for the “MyChamp11” fantasy cricket gaming app.",
+      "Produced social media creatives and graphic card visuals for the gaming brand.",
+      "Designed dashboard layouts and digital creatives for client platforms.",
+    ],
+  },
+  {
+    role: "Creative Graphic Designer",
+    company: "Starzlink Corporation",
+    location: "Ludhiana",
+    period: "Aug 2023 – Aug 2024",
+    points: ["Social media creatives and AI-based reels.", "Branding visuals.", "Campaign creative assets."],
+  },
+  {
+    role: "Graphic Designer",
+    company: "Digital Handlers India",
+    location: "Ludhiana",
+    period: "Feb 2023 – Jul 2023",
+    points: ["High-volume social creatives (12–13 per day) for food, education and immigration clients."],
+  },
+  {
+    role: "Graphic Designer",
+    company: "VPro Infotech",
+    location: "Ludhiana",
+    period: "Jun 2022 – Dec 2022",
+    points: ["Social media marketing graphics.", "Branding and promotional materials.", "Consistent visual themes across campaigns."],
+  },
+  {
+    role: "Graphic Designer",
+    company: "TTC Robotronics",
+    location: "Ludhiana",
+    period: "Apr 2022 – Jun 2022",
+    points: ["Social creatives and branding visuals for steel industry projects.", "High-volume work under tight deadlines."],
+  },
+  {
+    role: "Graphic Designer",
+    company: "Media Vox",
+    location: "Ludhiana",
+    period: "Feb 2020 – May 2020",
+    points: ["Social creatives for immigration and property service brands while keeping brand identity."],
+  },
+];
+
+export const education = [
+  {
+    title: "Professional Graphic Design & Creative Courses",
+    place: "Brilliko Institutes, Ludhiana",
+    period: "",
+    detail: "Graphic design tools, digital media and creative technologies.",
+  },
+  {
+    title: "Senior Secondary School",
+    place: "Blossom Global English Senior Secondary School, Ludhiana",
+    period: "2014",
+    detail: "",
+  },
+];
+
+export const achievements = [
+  "Designed 1000+ social media creatives across brands and industries.",
+  "Consistent high-volume delivery under tight deadlines.",
+  "Long-term remote work experience.",
+  "Contributed to mobile app UI and website UI projects for major clients.",
+];
 
 export const contact = {
   heading: "Let's make something bold",
-  email: "hello@amit-design.com",
-  phone: "+91 00000 00000",
-  socials: [
-    { label: "Behance", href: "#" },
-    { label: "Dribbble", href: "#" },
-    { label: "Instagram", href: "#" },
-    { label: "LinkedIn", href: "#" },
-  ],
+  cta: "Reach out if you want to create impactful visual art together.",
+  email: "amitkashyap777999@gmail.com",
+  phones: ["+91-9803277171", "7505973969"],
+  location: "Ludhiana, India",
+  links: [{ label: "Canva Portfolio", href: profile.portfolioUrl }],
 };

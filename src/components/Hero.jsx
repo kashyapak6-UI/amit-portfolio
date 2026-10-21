@@ -61,6 +61,7 @@ const Hero = () => {
           </div>
 
           <div style={{ perspective: "1200px" }}>
+            <p className="hero-fade mb-3 font-display text-2xl font-bold text-lime-300 md:text-3xl">{profile.greeting}</p>
             <p className="hero-fade mb-4 font-grotesk text-sm uppercase tracking-[0.35em] text-white/60">
               {profile.name} — {profile.role}
             </p>

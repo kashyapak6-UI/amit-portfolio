@@ -6,9 +6,10 @@ const Footer = () => (
       <p>© {new Date().getFullYear()} {profile.name}. All rights reserved.</p>
       <p className="font-display text-base font-extrabold normal-case tracking-normal text-white/70">{profile.name} — {profile.role}</p>
       <div className="flex gap-5">
-        {contact.socials.map((s) => (
-          <a key={s.label} href={s.href} className="hover:text-lime-300">{s.label}</a>
+        {contact.links.map((s) => (
+          <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="hover:text-lime-300">{s.label}</a>
         ))}
+        <a href={`mailto:${contact.email}`} className="hover:text-lime-300">Email</a>
       </div>
     </div>
   </footer>

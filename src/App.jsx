@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Work from "./components/Work";
 import About from "./components/About";
+import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -37,6 +38,7 @@ function App() {
       <Marquee />
       <Work />
       <About />
+      <Experience />
       <Skills />
       <Contact />
       <Footer />

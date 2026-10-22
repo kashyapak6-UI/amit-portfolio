@@ -335,8 +335,8 @@ const ReelHero = () => {
         {/* hand-drawn doodles, in frame units */}
         <svg className="rh-doodles" viewBox="0 0 1440 1080" aria-hidden="true">
           <g fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
-            <path className="rh-stroke" pathLength="1" d="M281 380 C276 398 271 414 265 431" />
-            <path className="rh-stroke" pathLength="1" d="M299 383 C294 401 289 417 283 434" />
+            <path className="rh-stroke" pathLength="1" d="M551 98 C546 116 541 132 535 149" />
+            <path className="rh-stroke" pathLength="1" d="M569 101 C564 119 559 135 553 152" />
             <path className="rh-stroke" pathLength="1" d="M1262 420 C1292 448 1292 492 1262 510 C1240 524 1212 529 1182 526" />
             <path className="rh-stroke" pathLength="1" d="M1199 511 L1181 526 L1199 541" />
           </g>

@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import NavBar from "./components/Navbar";
-import Hero from "./components/Hero";
+import ReelHero from "./sections/ReelHero";
 import Marquee from "./components/Marquee";
 import Work from "./components/Work";
 import Gallery from "./components/Gallery";
@@ -35,7 +35,7 @@ function App() {
   return (
     <main className="relative min-h-screen w-full overflow-x-clip bg-ink-900">
       <NavBar />
-      <Hero />
+      <ReelHero />
       <Marquee />
       <Work />
       <Gallery />

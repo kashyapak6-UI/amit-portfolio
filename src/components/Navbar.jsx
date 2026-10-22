@@ -25,9 +25,12 @@ const NavBar = () => {
   // Hide on scroll down, show (floating) on scroll up — from the reference repo
   useEffect(() => {
     const nav = navContainerRef.current;
-    if (currentScrollY < 10) {
-      setIsNavVisible(true);
+    // The reel hero has its own top bar, so this floating nav only appears after the hero
+    const heroH = document.getElementById("hero")?.offsetHeight ?? 0;
+    if (currentScrollY < Math.max(10, heroH - 80)) {
+      setIsNavVisible(false);
       nav.classList.remove("floating-nav");
+      if (menuOpen) setMenuOpen(false);
     } else if (currentScrollY > lastScrollY && !menuOpen) {
       setIsNavVisible(false);
       nav.classList.add("floating-nav");

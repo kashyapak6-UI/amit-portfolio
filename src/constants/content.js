@@ -556,3 +556,37 @@ export const gallery = [
   "title": "Video 05"
  }
 ];
+
+// Curved reel hero (layout adapted from the MotionSites "Reelmark" hero prompt).
+// Cards show Amit's own work from /public/canva: 5 reels + 5 posters, alternating.
+export const reelHero = {
+  nav: [
+    { label: "Work", href: "#work" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "Experience", href: "#experience" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
+  ],
+  badge: "Trusted by brands for 1000+ creatives",
+  headline: ["Design That", "Connects"],
+  subline: [
+    "Social media creatives, branding and web UI",
+    "from a Ludhiana-based graphic designer, 4+ years",
+    "of visuals that make people stop and look.",
+  ],
+  noteTop: ["See my", "work"],
+  noteBottom: "Let's talk",
+  cta: { label: "View My Work", href: "#work" },
+  cards: [
+    { type: "video", src: "/canva/gallery-video-01.mp4", poster: "/canva/gallery-video-01-poster.webp", alt: "Laundry brand reel" },
+    { type: "image", src: "/canva/gallery-poster-02.webp", alt: "Something Royal poster" },
+    { type: "video", src: "/canva/gallery-video-02.mp4", poster: "/canva/gallery-video-02-poster.webp", alt: "Laundry brand promo reel" },
+    { type: "image", src: "/canva/gallery-poster-05.webp", alt: "Snack brand IPL poster" },
+    { type: "video", src: "/canva/gallery-video-03.mp4", poster: "/canva/gallery-video-03-poster.webp", alt: "Laundry service reel" },
+    { type: "image", src: "/canva/gallery-poster-10.webp", alt: "Steel brand poster" },
+    { type: "video", src: "/canva/gallery-video-04.mp4", poster: "/canva/gallery-video-04-poster.webp", alt: "Carpet cleaning reel" },
+    { type: "image", src: "/canva/gallery-poster-12.webp", alt: "Event venue poster" },
+    { type: "video", src: "/canva/gallery-video-05.mp4", poster: "/canva/gallery-video-05-poster.webp", alt: "Website promo reel" },
+    { type: "image", src: "/canva/gallery-poster-06.webp", alt: "Momos food poster" },
+  ],
+};

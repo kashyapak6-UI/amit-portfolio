@@ -563,23 +563,15 @@ export const gallery = [
 // Curved reel hero (layout adapted from the MotionSites "Reelmark" hero prompt).
 // Cards show Amit's own work from /public/canva: 5 reels + 5 posters, alternating.
 export const reelHero = {
-  nav: [
-    { label: "Work", href: "#work" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" },
-  ],
-  badge: "Trusted by brands for 1000+ creatives",
-  headline: ["Design That", "Connects"],
+  badge: "Selected work in motion",
+  headline: ["Let's create", "something together"],
   subline: [
-    "Social media creatives, branding and web UI",
-    "from a Ludhiana-based graphic designer, 4+ years",
-    "of visuals that make people stop and look.",
+    "Reels, posters and brand creatives from recent projects.",
+    "Drag the reel or let it play, then let's make yours next.",
   ],
-  noteTop: ["See my", "work"],
-  noteBottom: "Let's talk",
-  cta: { label: "View My Work", href: "#work" },
+  noteTop: ["Drag to", "explore"],
+  noteBottom: "Your project next",
+  cta: { label: "Let's talk", href: "#contact" },
   cards: [
     { type: "video", src: B + "canva/gallery-video-01.mp4", poster: B + "canva/gallery-video-01-poster.webp", alt: "Laundry brand reel" },
     { type: "image", src: B + "canva/gallery-poster-02.webp", alt: "Something Royal poster" },

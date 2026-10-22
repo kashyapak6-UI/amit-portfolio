@@ -4,10 +4,10 @@ import "@fontsource/caveat/600.css";
 import "./ReelHero.css";
 
 import { scrollToHash } from "../components/Navbar";
-import { profile, reelHero } from "../constants/content";
+import { reelHero } from "../constants/content";
 
 // ---------------------------------------------------------------
-//  Curved reel hero. Layout + motion follow the MotionSites
+//  Closing work reel (near the end of the page). Layout + motion follow the MotionSites
 //  "Reelmark hero" prompt: a 1440x1080 frame in --u units, ten
 //  cards on the inside of a cylinder, drifting right -> left.
 // ---------------------------------------------------------------
@@ -272,7 +272,7 @@ const ReelHero = () => {
     };
   }, [motionOk]);
 
-  // ---- one-time entrance (Web Animations) ----------------------------
+  // ---- one-time entrance, played when the section first scrolls into view ----
   useEffect(() => {
     if (!motionOk) return;
     const root = sectionRef.current;
@@ -281,53 +281,42 @@ const ReelHero = () => {
       root.querySelectorAll(sel).forEach((el, i) =>
         el.animate(frames, { delay: delay + i * 130, duration, easing, fill: "backwards" })
       );
-    run(".rh-top", [{ transform: "translateY(-28px)", opacity: 0 }, { transform: "none", opacity: 1 }], 80, 700);
-    run(".rh-badge", [{ transform: "scale(.6)", opacity: 0 }, { transform: "none", opacity: 1 }], 300, 650, "cubic-bezier(.34,1.56,.64,1)");
-    run(".rh-line", [{ transform: "translateY(36px)", filter: "blur(14px)", opacity: 0 }, { transform: "none", filter: "blur(0)", opacity: 1 }], 450, 950);
-    run(".rh-sub", [{ transform: "translateY(18px)", opacity: 0 }, { transform: "none", opacity: 1 }], 820, 800);
-    run(".rh-band", [{ transform: "translateY(90px)", opacity: 0 }, { transform: "none", opacity: 1 }], 950, 1150);
-    run(".rh-cta", [{ transform: "scale(.7)", opacity: 0 }, { transform: "none", opacity: 1 }], 1300, 700, "cubic-bezier(.34,1.56,.64,1)");
-    run(".rh-stroke", [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], 1500, 900, "cubic-bezier(.65,0,.35,1)");
-    run(".rh-note", [{ opacity: 0, translate: "0 10px" }, { opacity: 1, translate: "0 0" }], 1600, 700);
+    const play = () => {
+      run(".rh-badge", [{ transform: "scale(.6)", opacity: 0 }, { transform: "none", opacity: 1 }], 0, 650, "cubic-bezier(.34,1.56,.64,1)");
+      run(".rh-line", [{ transform: "translateY(36px)", filter: "blur(14px)", opacity: 0 }, { transform: "none", filter: "blur(0)", opacity: 1 }], 150, 950);
+      run(".rh-sub", [{ transform: "translateY(18px)", opacity: 0 }, { transform: "none", opacity: 1 }], 500, 800);
+      run(".rh-band", [{ transform: "translateY(90px)", opacity: 0 }, { transform: "none", opacity: 1 }], 600, 1150);
+      run(".rh-cta", [{ transform: "scale(.7)", opacity: 0 }, { transform: "none", opacity: 1 }], 950, 700, "cubic-bezier(.34,1.56,.64,1)");
+      run(".rh-stroke", [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], 1150, 900, "cubic-bezier(.65,0,.35,1)");
+      run(".rh-note", [{ opacity: 0, translate: "0 10px" }, { opacity: 1, translate: "0 0" }], 1250, 700);
+      root.classList.remove("rh-wait");
+    };
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        play();
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(root);
+    return () => io.disconnect();
   }, [motionOk]);
 
   const go = (e, href) => scrollToHash(e, href);
   const setCard = (i) => (el) => (cardRefs.current[i] = el);
 
   return (
-    <section id="hero" ref={sectionRef} className={`reel-hero ${motionOk ? "" : "rh-reduced"}`}>
+    <section id="reel" ref={sectionRef} aria-label="Work reel" className={`reel-section ${motionOk ? "rh-wait" : "rh-reduced"}`}>
       <div className="rh-frame">
-        <header className="rh-top">
-          <a href="#hero" className="rh-logo" onClick={(e) => go(e, "#hero")}>
-            <svg className="rh-mark" viewBox="0 0 32 32" aria-hidden="true">
-              <rect width="32" height="32" rx="9" fill="#08482D" />
-              <path d="M9 22.5 15.6 9h.8L23 22.5M11.6 17.5h8.8" fill="none" stroke="#DAE7C7" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span>{profile.name}</span>
-          </a>
-          <nav className="rh-nav" aria-label="Primary">
-            {reelHero.nav.map((item) => (
-              <a key={item.href} href={item.href} onClick={(e) => go(e, item.href)}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <a href="#contact" className="rh-pill rh-pill-light" onClick={(e) => go(e, "#contact")}>
-            Contact
-          </a>
-          <a href="#contact" className="rh-pill rh-pill-dark" onClick={(e) => go(e, "#contact")}>
-            Hire me
-          </a>
-        </header>
-
         <div className="rh-badge-row">
           <p className="rh-badge">{reelHero.badge}</p>
         </div>
 
-        <h1 className="rh-headline">
+        <h2 className="rh-headline">
           <span className="rh-line">{reelHero.headline[0]}</span>
           <span className="rh-line rh-line-2">{reelHero.headline[1]}</span>
-        </h1>
+        </h2>
 
         <p className="rh-sub">
           {reelHero.subline.map((l, i) => (
@@ -345,7 +334,7 @@ const ReelHero = () => {
 
         {/* hand-drawn doodles, in frame units */}
         <svg className="rh-doodles" viewBox="0 0 1440 1080" aria-hidden="true">
-          <g fill="none" stroke="#08482D" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
+          <g fill="none" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round">
             <path className="rh-stroke" pathLength="1" d="M281 380 C276 398 271 414 265 431" />
             <path className="rh-stroke" pathLength="1" d="M299 383 C294 401 289 417 283 434" />
             <path className="rh-stroke" pathLength="1" d="M1262 420 C1292 448 1292 492 1262 510 C1240 524 1212 529 1182 526" />
@@ -363,7 +352,7 @@ const ReelHero = () => {
           <p className="rh-note rh-note-bottom">
             <span>{reelHero.noteBottom}</span>
             <svg viewBox="0 0 60 36" aria-hidden="true" className="rh-note-arrow">
-              <g fill="none" stroke="#08482D" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+              <g fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
                 <path className="rh-stroke" pathLength="1" d="M4 26 C18 30 36 26 52 12" />
                 <path className="rh-stroke" pathLength="1" d="M40 11 L53 11 L50 24" />
               </g>

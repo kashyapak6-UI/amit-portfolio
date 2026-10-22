@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import AnimatedTitle from "./AnimatedTitle";
-import { about, profile } from "../constants/content";
+import { about } from "../constants/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +45,7 @@ const About = () => {
     <section id="about" ref={root} className="relative w-full bg-ink-900">
       <div className="section-pad flex flex-col items-center gap-6 pt-24 text-center">
         <p className="eyebrow">About me</p>
-        <AnimatedTitle title={about.heading.replace(/ /g, " ") + "<br />I shape ideas"} containerClass="text-5xl md:text-8xl text-cream-50 items-center" lineClass="justify-center" />
+        <AnimatedTitle title={about.heading} containerClass="text-5xl md:text-8xl text-cream-50 items-center" lineClass="justify-center" />
       </div>
 
       <div id="about-clip" className="relative h-dvh w-full" style={{ perspective: "1000px" }}>
@@ -54,7 +54,7 @@ const About = () => {
           style={{ width: "min(24rem, 80vw)", height: "60vh", transform: "translate(-50%,-50%) rotateX(12deg) rotateZ(-4deg)" }}
         >
           <div className="absolute inset-0 bg-[linear-gradient(135deg,#7c5cff,#d4ff3f)]" />
-          <img src={about.image} alt={`${profile.name} studio`} className="about-img absolute inset-0 size-full scale-125 object-cover" />
+          <img src={about.image} alt={about.imageAlt} className="about-img absolute inset-0 size-full scale-125 object-cover" />
           <div className="absolute inset-0 bg-black/40" />
           <div className="about-overlay-text absolute-center w-full translate-y-10 px-6 text-center opacity-0">
             <p className="font-display text-4xl font-extrabold uppercase md:text-7xl">

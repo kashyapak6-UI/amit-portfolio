@@ -55,7 +55,8 @@ const Experience = () => {
   return (
     <section id="experience" ref={root} className="relative w-full bg-ink-900 section-pad py-32">
       <p className="eyebrow mb-6">Experience</p>
-      <AnimatedTitle title="Where I've<br />worked" containerClass="text-5xl md:text-8xl text-cream-50 mb-20" />
+      <AnimatedTitle title="Where I've<br />worked" containerClass="text-5xl md:text-8xl text-cream-50 mb-6" />
+      <p className="mb-20 font-grotesk text-sm text-white/50">All roles in Ludhiana unless marked remote.</p>
 
       <div className="exp-list relative" style={{ perspective: "1400px" }}>
         <div className="exp-line absolute left-4 top-0 h-full w-[2px] origin-top bg-gradient-to-b from-lime-300 via-violet-300 to-transparent md:left-1/2" />
@@ -72,7 +73,8 @@ const Experience = () => {
                   <p className="font-grotesk text-xs uppercase tracking-widest text-lime-300">{job.period}</p>
                   <h3 className="mt-3 font-display text-2xl font-bold uppercase md:text-3xl">{job.role}</h3>
                   <p className="mt-1 font-grotesk text-sm text-white/55">
-                    {job.company} · {job.location}
+                    {job.company}
+                    {job.location && ` · ${job.location}`}
                   </p>
                   <ul className="mt-5 space-y-2">
                     {job.points.map((pt) => (

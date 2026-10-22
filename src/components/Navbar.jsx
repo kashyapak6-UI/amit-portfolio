@@ -55,9 +55,7 @@ const NavBar = () => {
             <span className="flex-center size-10 rounded-xl bg-lime-300 font-display text-lg font-extrabold text-ink-900">
               AK
             </span>
-            <span className="hidden font-display text-sm font-bold uppercase tracking-wider sm:block">
-              {profile.name} <span className="text-white/40">/ {profile.role}</span>
-            </span>
+            <span className="sr-only">{profile.name} — home</span>
           </a>
 
           <div className="flex items-center">

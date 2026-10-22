@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { HiArrowUpRight, HiOutlineEnvelope, HiOutlinePhone, HiOutlineMapPin } from "react-icons/hi2";
+import { HiArrowUpRight, HiOutlineEnvelope, HiOutlinePhone } from "react-icons/hi2";
 
 import AnimatedTitle from "./AnimatedTitle";
 import Button from "./Button";
@@ -46,9 +46,6 @@ const Contact = () => {
                 <HiOutlinePhone className="text-lime-300" /> {ph}
               </a>
             ))}
-            <p className="flex items-center gap-3 font-grotesk text-white/60">
-              <HiOutlineMapPin className="text-lime-300" /> {contact.location}
-            </p>
           </div>
         </div>
 

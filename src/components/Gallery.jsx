@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import AnimatedTitle from "./AnimatedTitle";
-import { gallery, profile } from "../constants/content";
+import { gallery } from "../constants/content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +36,7 @@ const Gallery = () => {
         </div>
         <div className="max-w-sm font-body text-white/60">
           <p>
-            {images} images and {videos} videos from my design work — social media, branding, logos, event creatives and web banners.
+            {images} images and {videos} videos. Videos play on click.
           </p>
         </div>
       </div>
@@ -59,7 +59,7 @@ const Gallery = () => {
               <img
                 className="gal-img block h-auto w-full transition duration-700 group-hover:scale-[1.03]"
                 src={g.src}
-                alt={`${g.category} design by ${profile.name}`}
+                alt={`${g.category} design sample`}
                 width={g.w}
                 height={g.h}
                 loading="lazy"

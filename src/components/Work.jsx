@@ -67,11 +67,10 @@ const Work = () => {
         <p className="max-w-sm font-body text-white/60">
           <span className="work-count font-display text-6xl font-extrabold text-lime-300">{projects.length}</span>
           <br />
-          Featured projects across app UI, website UI, social media, AI content and branding.
+          Featured projects — more of my work is in the gallery below.
         </p>
       </div>
 
-      <p className="mb-10 font-grotesk text-xs uppercase tracking-widest text-white/35">More of my real work is in the gallery below.</p>
       <div className="work-stage grid gap-x-10 gap-y-20 md:grid-cols-2">
         {projects.map((p, i) => (
           <article key={p.title} className={`work-card ${i % 2 === 1 ? "md:mt-40" : ""}`}>
@@ -81,11 +80,7 @@ const Work = () => {
                 {p.image ? (
                   <img src={p.image} alt={p.title} loading="lazy" className="work-img absolute inset-0 size-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
                 ) : (
-                  <div className="work-img flex-center absolute inset-0 grain">
-                    <span className="px-8 text-center font-display text-4xl font-extrabold uppercase leading-none md:text-6xl" style={{ color: p.accent }}>
-                      {p.title}
-                    </span>
-                  </div>
+                  <div className="work-img absolute inset-0 grain" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <span

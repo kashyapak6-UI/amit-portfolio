@@ -1,3 +1,6 @@
+// Prefix public asset paths with Vite's base so they work at '/' (dev) and '/amit-portfolio/' (GitHub Pages).
+const B = import.meta.env.BASE_URL;
+
 // ---------------------------------------------------------------
 //  ALL SITE CONTENT LIVES HERE. Text comes from Amit Kashyap's CV.
 //  All media is served locally from /public/canva.
@@ -45,7 +48,7 @@ export const projects = [
     category: "Website UI",
     year: "2024–25",
     description: "Landing and internal page layouts, plus dashboard screens for client platforms.",
-    image: "/canva/gallery-banner-04.webp",
+    image: B + "canva/gallery-banner-04.webp",
     accent: "#a98bff",
   },
   {
@@ -53,7 +56,7 @@ export const projects = [
     category: "AI Content",
     year: "2023–24",
     description: "AI-generated reels paired with social creatives, branding visuals and campaign assets.",
-    image: "/canva/gallery-social-05.webp",
+    image: B + "canva/gallery-social-05.webp",
     accent: "#ff5c8a",
   },
   {
@@ -77,7 +80,7 @@ export const projects = [
 export const about = {
   heading: "I shape ideas",
   imageAlt: "Sketching a design on paper",
-  image: "/canva/focus-03.webp",
+  image: B + "canva/focus-03.webp",
   paragraphs: [
     "I design clear, bold visuals for social feeds, brands, websites and apps, along with AI-generated visual content.",
     "Experienced in both full-time and freelance projects with a strong background in remote work environments, delivering high-volume digital designs across many industries.",
@@ -93,10 +96,10 @@ export const about = {
 
 // The CV lists no proficiency levels, so none are shown.
 export const tools = [
-  { name: "Adobe Photoshop", icon: "/icons/photoshop.svg", color: "#31a8ff" },
-  { name: "Adobe Illustrator", icon: "/icons/illustrator.svg", color: "#ff9a00" },
-  { name: "Figma", icon: "/icons/figma.svg", color: "#a259ff" },
-  { name: "Canva", icon: "/icons/canva.svg", color: "#00c4cc" },
+  { name: "Adobe Photoshop", icon: B + "icons/photoshop.svg", color: "#31a8ff" },
+  { name: "Adobe Illustrator", icon: B + "icons/illustrator.svg", color: "#ff9a00" },
+  { name: "Figma", icon: B + "icons/figma.svg", color: "#a259ff" },
+  { name: "Canva", icon: B + "icons/canva.svg", color: "#00c4cc" },
   { name: "AI Creative Tools", color: "#d4ff3f", note: "Image, video & voice generation" }, // no icon by design
 ];
 
@@ -192,7 +195,7 @@ export const contact = {
 export const gallery = [
  {
   "type": "image",
-  "src": "/canva/gallery-project-01.webp",
+  "src": B + "canva/gallery-project-01.webp",
   "w": 1599,
   "h": 1066,
   "category": "Branding",
@@ -200,7 +203,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-project-02.webp",
+  "src": B + "canva/gallery-project-02.webp",
   "w": 1599,
   "h": 1066,
   "category": "Branding",
@@ -208,7 +211,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-project-03.webp",
+  "src": B + "canva/gallery-project-03.webp",
   "w": 1600,
   "h": 1600,
   "category": "Branding",
@@ -216,7 +219,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-project-04.webp",
+  "src": B + "canva/gallery-project-04.webp",
   "w": 1600,
   "h": 1040,
   "category": "Branding",
@@ -224,8 +227,8 @@ export const gallery = [
  },
  {
   "type": "video",
-  "src": "/canva/gallery-video-01.mp4",
-  "poster": "/canva/gallery-video-01-poster.webp",
+  "src": B + "canva/gallery-video-01.mp4",
+  "poster": B + "canva/gallery-video-01-poster.webp",
   "w": 720,
   "h": 1280,
   "category": "Video",
@@ -233,7 +236,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-project-05.webp",
+  "src": B + "canva/gallery-project-05.webp",
   "w": 800,
   "h": 800,
   "category": "Branding",
@@ -241,7 +244,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-logo-01.webp",
+  "src": B + "canva/gallery-logo-01.webp",
   "w": 800,
   "h": 800,
   "category": "Logo",
@@ -249,7 +252,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-logo-02.webp",
+  "src": B + "canva/gallery-logo-02.webp",
   "w": 800,
   "h": 800,
   "category": "Logo",
@@ -257,7 +260,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-logo-03.webp",
+  "src": B + "canva/gallery-logo-03.webp",
   "w": 800,
   "h": 800,
   "category": "Logo",
@@ -265,7 +268,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-01.webp",
+  "src": B + "canva/gallery-social-01.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -273,7 +276,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-02.webp",
+  "src": B + "canva/gallery-social-02.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -281,7 +284,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-03.webp",
+  "src": B + "canva/gallery-social-03.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -289,7 +292,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-04.webp",
+  "src": B + "canva/gallery-social-04.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -297,7 +300,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-05.webp",
+  "src": B + "canva/gallery-social-05.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -305,8 +308,8 @@ export const gallery = [
  },
  {
   "type": "video",
-  "src": "/canva/gallery-video-02.mp4",
-  "poster": "/canva/gallery-video-02-poster.webp",
+  "src": B + "canva/gallery-video-02.mp4",
+  "poster": B + "canva/gallery-video-02-poster.webp",
   "w": 720,
   "h": 1280,
   "category": "Video",
@@ -314,7 +317,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-06.webp",
+  "src": B + "canva/gallery-social-06.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -322,7 +325,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-07.webp",
+  "src": B + "canva/gallery-social-07.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -330,7 +333,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-08.webp",
+  "src": B + "canva/gallery-social-08.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -338,7 +341,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-09.webp",
+  "src": B + "canva/gallery-social-09.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -346,7 +349,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-10.webp",
+  "src": B + "canva/gallery-social-10.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -354,7 +357,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-social-11.webp",
+  "src": B + "canva/gallery-social-11.webp",
   "w": 800,
   "h": 800,
   "category": "Social media",
@@ -362,7 +365,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-01.webp",
+  "src": B + "canva/gallery-poster-01.webp",
   "w": 1080,
   "h": 1350,
   "category": "Poster",
@@ -370,7 +373,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-02.webp",
+  "src": B + "canva/gallery-poster-02.webp",
   "w": 900,
   "h": 1600,
   "category": "Poster",
@@ -378,7 +381,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-03.webp",
+  "src": B + "canva/gallery-poster-03.webp",
   "w": 800,
   "h": 800,
   "category": "Poster",
@@ -386,8 +389,8 @@ export const gallery = [
  },
  {
   "type": "video",
-  "src": "/canva/gallery-video-03.mp4",
-  "poster": "/canva/gallery-video-03-poster.webp",
+  "src": B + "canva/gallery-video-03.mp4",
+  "poster": B + "canva/gallery-video-03-poster.webp",
   "w": 720,
   "h": 1280,
   "category": "Video",
@@ -395,7 +398,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-04.webp",
+  "src": B + "canva/gallery-poster-04.webp",
   "w": 800,
   "h": 800,
   "category": "Poster",
@@ -403,7 +406,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-05.webp",
+  "src": B + "canva/gallery-poster-05.webp",
   "w": 900,
   "h": 1600,
   "category": "Poster",
@@ -411,7 +414,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-06.webp",
+  "src": B + "canva/gallery-poster-06.webp",
   "w": 640,
   "h": 800,
   "category": "Poster",
@@ -419,7 +422,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-07.webp",
+  "src": B + "canva/gallery-poster-07.webp",
   "w": 800,
   "h": 800,
   "category": "Poster",
@@ -427,7 +430,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-08.webp",
+  "src": B + "canva/gallery-poster-08.webp",
   "w": 1080,
   "h": 1350,
   "category": "Poster",
@@ -435,7 +438,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-09.webp",
+  "src": B + "canva/gallery-poster-09.webp",
   "w": 533,
   "h": 800,
   "category": "Poster",
@@ -443,7 +446,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-10.webp",
+  "src": B + "canva/gallery-poster-10.webp",
   "w": 640,
   "h": 800,
   "category": "Poster",
@@ -451,7 +454,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-11.webp",
+  "src": B + "canva/gallery-poster-11.webp",
   "w": 1080,
   "h": 1350,
   "category": "Poster",
@@ -459,7 +462,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-12.webp",
+  "src": B + "canva/gallery-poster-12.webp",
   "w": 900,
   "h": 1600,
   "category": "Poster",
@@ -467,8 +470,8 @@ export const gallery = [
  },
  {
   "type": "video",
-  "src": "/canva/gallery-video-04.mp4",
-  "poster": "/canva/gallery-video-04-poster.webp",
+  "src": B + "canva/gallery-video-04.mp4",
+  "poster": B + "canva/gallery-video-04-poster.webp",
   "w": 720,
   "h": 1280,
   "category": "Video",
@@ -476,7 +479,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-poster-13.webp",
+  "src": B + "canva/gallery-poster-13.webp",
   "w": 1080,
   "h": 1350,
   "category": "Poster",
@@ -484,7 +487,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-event-01.webp",
+  "src": B + "canva/gallery-event-01.webp",
   "w": 1016,
   "h": 1600,
   "category": "Event creative",
@@ -492,7 +495,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-event-02.webp",
+  "src": B + "canva/gallery-event-02.webp",
   "w": 1016,
   "h": 1600,
   "category": "Event creative",
@@ -500,7 +503,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-event-03.webp",
+  "src": B + "canva/gallery-event-03.webp",
   "w": 1016,
   "h": 1600,
   "category": "Event creative",
@@ -508,7 +511,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-event-04.webp",
+  "src": B + "canva/gallery-event-04.webp",
   "w": 1016,
   "h": 1600,
   "category": "Event creative",
@@ -516,7 +519,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-banner-01.webp",
+  "src": B + "canva/gallery-banner-01.webp",
   "w": 1600,
   "h": 667,
   "category": "Web banner",
@@ -524,7 +527,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-banner-02.webp",
+  "src": B + "canva/gallery-banner-02.webp",
   "w": 1600,
   "h": 667,
   "category": "Web banner",
@@ -532,7 +535,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-banner-03.webp",
+  "src": B + "canva/gallery-banner-03.webp",
   "w": 1600,
   "h": 667,
   "category": "Web banner",
@@ -540,7 +543,7 @@ export const gallery = [
  },
  {
   "type": "image",
-  "src": "/canva/gallery-banner-04.webp",
+  "src": B + "canva/gallery-banner-04.webp",
   "w": 1365,
   "h": 616,
   "category": "Web banner",
@@ -548,8 +551,8 @@ export const gallery = [
  },
  {
   "type": "video",
-  "src": "/canva/gallery-video-05.mp4",
-  "poster": "/canva/gallery-video-05-poster.webp",
+  "src": B + "canva/gallery-video-05.mp4",
+  "poster": B + "canva/gallery-video-05-poster.webp",
   "w": 720,
   "h": 1280,
   "category": "Video",
@@ -578,15 +581,15 @@ export const reelHero = {
   noteBottom: "Let's talk",
   cta: { label: "View My Work", href: "#work" },
   cards: [
-    { type: "video", src: "/canva/gallery-video-01.mp4", poster: "/canva/gallery-video-01-poster.webp", alt: "Laundry brand reel" },
-    { type: "image", src: "/canva/gallery-poster-02.webp", alt: "Something Royal poster" },
-    { type: "video", src: "/canva/gallery-video-02.mp4", poster: "/canva/gallery-video-02-poster.webp", alt: "Laundry brand promo reel" },
-    { type: "image", src: "/canva/gallery-poster-05.webp", alt: "Snack brand IPL poster" },
-    { type: "video", src: "/canva/gallery-video-03.mp4", poster: "/canva/gallery-video-03-poster.webp", alt: "Laundry service reel" },
-    { type: "image", src: "/canva/gallery-poster-10.webp", alt: "Steel brand poster" },
-    { type: "video", src: "/canva/gallery-video-04.mp4", poster: "/canva/gallery-video-04-poster.webp", alt: "Carpet cleaning reel" },
-    { type: "image", src: "/canva/gallery-poster-12.webp", alt: "Event venue poster" },
-    { type: "video", src: "/canva/gallery-video-05.mp4", poster: "/canva/gallery-video-05-poster.webp", alt: "Website promo reel" },
-    { type: "image", src: "/canva/gallery-poster-06.webp", alt: "Momos food poster" },
+    { type: "video", src: B + "canva/gallery-video-01.mp4", poster: B + "canva/gallery-video-01-poster.webp", alt: "Laundry brand reel" },
+    { type: "image", src: B + "canva/gallery-poster-02.webp", alt: "Something Royal poster" },
+    { type: "video", src: B + "canva/gallery-video-02.mp4", poster: B + "canva/gallery-video-02-poster.webp", alt: "Laundry brand promo reel" },
+    { type: "image", src: B + "canva/gallery-poster-05.webp", alt: "Snack brand IPL poster" },
+    { type: "video", src: B + "canva/gallery-video-03.mp4", poster: B + "canva/gallery-video-03-poster.webp", alt: "Laundry service reel" },
+    { type: "image", src: B + "canva/gallery-poster-10.webp", alt: "Steel brand poster" },
+    { type: "video", src: B + "canva/gallery-video-04.mp4", poster: B + "canva/gallery-video-04-poster.webp", alt: "Carpet cleaning reel" },
+    { type: "image", src: B + "canva/gallery-poster-12.webp", alt: "Event venue poster" },
+    { type: "video", src: B + "canva/gallery-video-05.mp4", poster: B + "canva/gallery-video-05-poster.webp", alt: "Website promo reel" },
+    { type: "image", src: B + "canva/gallery-poster-06.webp", alt: "Momos food poster" },
   ],
 };

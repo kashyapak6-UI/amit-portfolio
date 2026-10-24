@@ -67,7 +67,7 @@ body {
 /* ---------- Mobile / touch only (desktop layout untouched) ---------- */
 @media (max-width: 639px) {
   /* section titles: longest word ("SOMETHING") always fits the padded width */
-  .animated-title { font-size: min(3rem, calc((100vw - 2.5rem) / 9.6)) !important; }
+  .animated-title { font-size: min(3rem, calc((100vw - 2.5rem) / 11)) !important; }
 }
 @media (pointer: coarse) {
   html { -webkit-text-size-adjust: 100%; }

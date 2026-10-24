@@ -10,7 +10,7 @@ const Button = ({ id, title, rightIcon, leftIcon, containerClass, href, type = "
       type={href ? undefined : type}
       onClick={onClick}
       className={clsx(
-        "group relative z-10 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full bg-lime-300 px-7 py-3 text-ink-900",
+        "btn-roll group relative z-10 inline-flex w-fit cursor-pointer items-center gap-2 overflow-hidden rounded-full bg-lime-300 px-7 py-3 text-ink-900",
         containerClass
       )}
     >

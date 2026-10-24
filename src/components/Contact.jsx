@@ -38,11 +38,11 @@ const Contact = () => {
       <div className="contact-panel grid gap-10 rounded-[2rem] border border-white/10 bg-gradient-to-br from-violet-400/30 via-ink-800 to-ink-800 p-6 md:grid-cols-5 md:p-12">
         <div className="flex flex-col justify-between gap-10 md:col-span-2">
           <div className="space-y-5">
-            <a href={`mailto:${contact.email}`} className="flex items-center gap-3 break-all font-display text-lg font-bold hover:text-lime-300 md:text-xl">
+            <a href={`mailto:${contact.email}`} className="contact-link flex items-center gap-3 break-all font-display text-lg font-bold hover:text-lime-300 md:text-xl">
               <HiOutlineEnvelope className="shrink-0 text-lime-300" /> {contact.email}
             </a>
             {contact.phones.map((ph) => (
-              <a key={ph} href={`tel:${ph.startsWith("+") ? ph.replace(/-/g, "") : "+91" + ph}`} className="flex items-center gap-3 font-grotesk text-white/70 hover:text-lime-300">
+              <a key={ph} href={`tel:${ph.startsWith("+") ? ph.replace(/-/g, "") : "+91" + ph}`} className="contact-link flex items-center gap-3 font-grotesk text-white/70 hover:text-lime-300">
                 <HiOutlinePhone className="text-lime-300" /> {ph}
               </a>
             ))}

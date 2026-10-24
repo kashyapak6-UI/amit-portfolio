@@ -63,3 +63,28 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
 }
+
+/* ---------- Mobile / touch only (desktop layout untouched) ---------- */
+@media (max-width: 639px) {
+  /* section titles: longest word ("SOMETHING") always fits the padded width */
+  .animated-title { font-size: min(3rem, calc((100vw - 2.5rem) / 9.6)) !important; }
+}
+@media (pointer: coarse) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { -webkit-tap-highlight-color: transparent; }
+  /* 16px stops iOS from zooming into form fields */
+  .input-field { font-size: 16px; min-height: 48px; }
+  /* comfortable thumb targets (>= 44px) */
+  .nav-tap { width: 44px; height: 44px; }
+  .btn-roll { min-height: 44px; }
+  .contact-link { min-height: 44px; }
+  .menu-link { display: flex; align-items: center; min-height: 48px; }
+  .footer-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; padding: 0 4px; }
+  /* never let the 3D canvas swallow vertical swipes */
+  #hero-frame canvas { touch-action: pan-y; }
+  /* notch / home-bar room */
+  .footer-safe { padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px)); }
+}
+@media (pointer: coarse) and (max-width: 639px) {
+  .nav-safe { top: calc(0.75rem + env(safe-area-inset-top, 0px)); left: calc(0.75rem + env(safe-area-inset-left, 0px)); right: calc(0.75rem + env(safe-area-inset-right, 0px)); }
+}

@@ -48,11 +48,11 @@ const NavBar = () => {
   };
 
   return (
-    <div ref={navContainerRef} className="fixed inset-x-3 top-3 z-50 transition-all duration-700 sm:inset-x-6 sm:top-4">
+    <div ref={navContainerRef} className="nav-safe fixed inset-x-3 top-3 z-50 transition-all duration-700 sm:inset-x-6 sm:top-4">
       <header className="w-full">
         <nav className="flex items-center justify-between px-4 py-3">
           <a href="#hero" onClick={(e) => go(e, "#hero")} className="flex items-center gap-3">
-            <span className="flex-center size-10 rounded-xl bg-lime-300 font-display text-lg font-extrabold text-ink-900">
+            <span className="nav-tap flex-center size-10 rounded-xl bg-lime-300 font-display text-lg font-extrabold text-ink-900">
               AK
             </span>
             <span className="sr-only">{profile.name} — home</span>
@@ -70,7 +70,7 @@ const NavBar = () => {
             <button
               aria-label="Toggle menu"
               onClick={() => setMenuOpen((v) => !v)}
-              className="flex-center size-10 rounded-xl border border-white/15 text-xl md:hidden"
+              className="nav-tap flex-center size-10 rounded-xl border border-white/15 text-xl md:hidden"
             >
               {menuOpen ? <HiX /> : <HiOutlineMenuAlt4 />}
             </button>
@@ -80,7 +80,7 @@ const NavBar = () => {
         {menuOpen && (
           <div className="mx-2 mb-2 flex flex-col gap-4 rounded-2xl border border-white/10 bg-ink-800/95 p-6 backdrop-blur md:hidden">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} onClick={(e) => go(e, item.href)} className="font-display text-3xl font-bold uppercase">
+              <a key={item.href} href={item.href} onClick={(e) => go(e, item.href)} className="menu-link font-display text-3xl font-bold uppercase">
                 {item.label}
               </a>
             ))}

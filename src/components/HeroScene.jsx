@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, MeshWobbleMaterial, RoundedBox, Sparkles, ContactShadows } from "@react-three/drei";
 import * as THREE from "three";
@@ -33,6 +33,9 @@ const Spinner = ({ speed = 0.3, children, ...props }) => {
     </mesh>
   );
 };
+
+// Phones/tablets: lighter render (lower DPR, no shadow maps, fewer sparkles). Desktop unchanged.
+const isTouchPhone = typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse) and (max-width: 1024px)").matches;
 
 const Shapes = () => (
   <Rig>
@@ -78,26 +81,41 @@ const Shapes = () => (
       </mesh>
     </Float>
 
-    <Sparkles count={70} scale={[10, 6, 4]} size={2.2} speed={0.4} color="#d4ff3f" opacity={0.7} />
+    <Sparkles count={isTouchPhone ? 40 : 70} scale={[10, 6, 4]} size={2.2} speed={0.4} color="#d4ff3f" opacity={0.7} />
   </Rig>
 );
 
-const HeroScene = () => (
-  <Canvas
-    shadows
-    dpr={[1, 1.75]}
-    camera={{ position: [0, 0, 7], fov: 45 }}
-    gl={{ antialias: true, alpha: true }}
-    className="!absolute inset-0"
-  >
-    <ambientLight intensity={0.55} />
-    <directionalLight position={[4, 6, 5]} intensity={2.2} castShadow />
-    <pointLight position={[-5, -2, 3]} intensity={40} color="#7c5cff" />
-    <pointLight position={[5, -3, 2]} intensity={25} color="#d4ff3f" />
-    <hemisphereLight args={["#ffffff", "#1a1030", 0.6]} />
-    <Shapes />
-    <ContactShadows position={[0, -2.8, 0]} opacity={0.45} scale={14} blur={2.8} far={5} color="#000000" />
-  </Canvas>
-);
+const HeroScene = () => {
+  // pause the render loop while the hero is off-screen (saves battery on phones)
+  const wrap = useRef(null);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const el = wrap.current?.closest("#hero") || wrap.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { rootMargin: "100px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <div ref={wrap} className="absolute inset-0">
+      <Canvas
+        shadows={!isTouchPhone}
+        dpr={isTouchPhone ? [1, 1.25] : [1, 1.75]}
+        frameloop={visible ? "always" : "never"}
+        camera={{ position: [0, 0, 7], fov: 45 }}
+        gl={{ antialias: !isTouchPhone, alpha: true, powerPreference: "high-performance" }}
+        className="!absolute inset-0"
+      >
+        <ambientLight intensity={0.55} />
+        <directionalLight position={[4, 6, 5]} intensity={2.2} castShadow />
+        <pointLight position={[-5, -2, 3]} intensity={40} color="#7c5cff" />
+        <pointLight position={[5, -3, 2]} intensity={25} color="#d4ff3f" />
+        <hemisphereLight args={["#ffffff", "#1a1030", 0.6]} />
+        <Shapes />
+        <ContactShadows position={[0, -2.8, 0]} opacity={0.45} scale={14} blur={2.8} far={5} color="#000000" frames={isTouchPhone ? 1 : Infinity} />
+      </Canvas>
+    </div>
+  );
+};
 
 export default HeroScene;

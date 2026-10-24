@@ -43,6 +43,9 @@ function roundedQuad(pts, r) {
   return `path("${d}Z")`;
 }
 
+// phones: let autoplay stream instead of preloading all clips up front
+const isTouchPhone = typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse) and (max-width: 1024px)").matches;
+
 const Card = ({ item, motionOk, cardRef }) => {
   const markReady = (e) => e.currentTarget.parentElement?.classList.add("is-ready");
   const showVideo = item.type === "video" && motionOk;
@@ -57,7 +60,7 @@ const Card = ({ item, motionOk, cardRef }) => {
           loop
           autoPlay
           playsInline
-          preload="auto"
+          preload={isTouchPhone ? "metadata" : "auto"}
           disablePictureInPicture
           onLoadedData={markReady}
         />
